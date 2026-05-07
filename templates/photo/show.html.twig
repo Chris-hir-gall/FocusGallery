@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Photo{% endblock %}
+
+{% block body %}
+    <h1>Photo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ photo.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ photo.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ photo.description }}</td>
+            </tr>
+            <tr>
+                <th>ImageName</th>
+                <td>{{ photo.imageName }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ photo.updatedAt ? photo.updatedAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_photo_index') }}">back to list</a>
+
+    
+
+    
+{% endblock %}

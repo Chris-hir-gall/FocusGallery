@@ -8,7 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
@@ -26,15 +26,15 @@ class PhotoCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('title'),
             AssociationField::new('category'),
-            TextEditorField::new('description'),
+            TextField::new('description'),
              ImageField::new('imageName', 'Image')
-                ->setBasePath('uploads/images')
+                ->setBasePath('images/photos')
                 ->onlyOnIndex(),
 
-            ImageField::new('imageFile', 'Changer l`image')
+            TextField::new('imageFile', 'Changer l`image')
                 ->setFormType(VichImageType::class)
                 ->onlyOnForms(),
-            DateTimeField::new('updatedAt', 'Date de mise à jour')->onlyOnIndex(),
+            //DateTimeField::new('updatedAt', 'Date de mise à jour')->onlyOnIndex(),
         ];
     }
     
