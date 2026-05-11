@@ -1,6 +1,8 @@
 
 
-    {% for category in categories %}
-        <a class="nav-item nav-link link-body-emphasis active"
-         href="#"><button class="btn btn-{{category.color}}">{{category.name}}</button></a>
-    {% endfor %}
+{% for category in categories %}
+    <a class="nav-item nav-link link-body-emphasis active"
+       href="{{ path('app_category_show', {'id': category.id}) }}">
+        <button class="btn btn-{{ category.color }}">{{ category.name }}</button>
+    </a>
+{% endfor %}

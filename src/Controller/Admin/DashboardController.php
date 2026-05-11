@@ -47,5 +47,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkTo(CategoryCrudController::class, 'Category', 'fa fa-home');
         yield MenuItem::linkTo(PhotoCrudController::class, 'Photo', 'fas fa-list');
         yield MenuItem::linkTo(UserCrudController::class, 'User', 'fas fa-list');
+        yield MenuItem::linkToRoute( 'Site', 'fa fa-home','app_photo_index');
     }
 }

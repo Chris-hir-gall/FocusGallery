@@ -11,7 +11,7 @@ use Vich\UploaderBundle\Mapping\Attribute\UploadableField;
 
 #[Uploadable]
 #[ORM\Entity(repositoryClass: PhotoRepository::class)]
-
+#[ORM\HasLifecycleCallbacks]
 class Photo
 {
     #[ORM\Id]
@@ -37,8 +37,7 @@ class Photo
     #[ORM\ManyToOne(inversedBy: 'photos')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Category $category = null;
-
-    
+   
 
     public function getId(): ?int
     {
@@ -74,7 +73,7 @@ class Photo
         return $this->imageName;
     }
 
-    public function setImageName(string $imageName): static
+    public function setImageName(?string $imageName): static
     {
         $this->imageName = $imageName;
 
@@ -86,19 +85,14 @@ class Photo
         return $this->updatedAt;
     }
 
-    public function setUpdatedAt(\DateTimeImmutable $updatedAt): static
+    #[ORM\PreUpdate]
+    public function setUpdatedAt(): static
     {
-        $this->updatedAt = $updatedAt;
+        $this->updatedAt = new \DateTimeImmutable();
 
         return $this;
     }
 
-    #[ORM\PrePersist]
-    #[ORM\PreUpdate]
-    public function setUpdatedAtValue(): void
-    {
-        $this->updatedAt = new \DateTimeImmutable();
-    }
 
     public function getCategory(): ?Category
     {

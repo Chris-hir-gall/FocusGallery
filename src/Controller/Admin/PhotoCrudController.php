@@ -27,8 +27,8 @@ class PhotoCrudController extends AbstractCrudController
             TextField::new('title'),
             AssociationField::new('category'),
             TextField::new('description'),
-             ImageField::new('imageName', 'Image')
-                ->setBasePath('images/photos')
+            ImageField::new('imageName', 'Image')
+                ->setBasePath('/images/photos')
                 ->onlyOnIndex(),
 
             TextField::new('imageFile', 'Changer l`image')
