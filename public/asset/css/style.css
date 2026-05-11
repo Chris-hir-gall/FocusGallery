@@ -1,5 +1,16 @@
+
 header{
     background-color: #343638;
     color: #fff;
 }
+
+.card-body{
+    border:solid;
+    border-radius: 15px;
+    border-width: 1px;
+}
+
+
+
+
 
