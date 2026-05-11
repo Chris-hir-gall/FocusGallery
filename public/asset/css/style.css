@@ -1,7 +1,13 @@
 
 header{
-    background-color: #343638;
-    color: #fff;
+    background-color: #343638 ;
+   
+    
+    
+}
+
+header a, .header-a{
+     color: white !important;
 }
 
 .card-body{
