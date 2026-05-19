@@ -11,6 +11,7 @@ final class MainController extends AbstractController
     #[Route('/', name: 'app_main')]
     public function index(): Response
     {
+        // dd(bin2hex(random_bytes(16)));
         return $this->redirectToRoute('app_photo_index');
     }
 }
